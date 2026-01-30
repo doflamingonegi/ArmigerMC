@@ -33,12 +33,12 @@ public class WeaponManager {
                 if(mm.getMana(player.getUniqueId()) < W.getMANACost())
                 {
                     player.getWorld().spawnParticle(
-                            Particle.DUST,
+                            Particle.ASH,
                             player.getLocation().add(0, 2, 0),
                             50
                     );
                     player.getWorld().spawnParticle(
-                            Particle.DUST,
+                            Particle.ASH,
                             player.getLocation().add(1, 2, 0),
                             50
                     );

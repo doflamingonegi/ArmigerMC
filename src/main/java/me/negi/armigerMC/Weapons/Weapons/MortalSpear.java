@@ -37,7 +37,7 @@ public class MortalSpear implements Weapon {
 
     @Override
     public ItemStack getWeaponItem() {
-        ItemStack stack = new ItemStack(Material.NETHERITE_SPEAR);
+        ItemStack stack = new ItemStack(Material.WOODEN_SWORD);
         ItemMeta meta = stack.getItemMeta();
         assert meta != null;
         meta.setDisplayName("Mortal Spear");

@@ -32,6 +32,14 @@ public class ManaManager {
         return mana;
     }
 
+    String getMana(int MaxMana, int CurrentMana)
+    {
+        if (MaxMana <= 0) return "□□□□□□□□□□ " + CurrentMana;
+        int filled = (int) Math.round((CurrentMana / (double) MaxMana) * 10);
+        filled = Math.max(0, Math.min(10, filled));
+        return "■".repeat(filled) + "□".repeat(10 - filled).concat(" " + CurrentMana);
+    }
+
     public void setMana(UUID uuid, int amt)
     {
         ManaMap.get(uuid).setMANA(getMana(uuid) - amt);
@@ -49,7 +57,7 @@ public class ManaManager {
                 if (current < max) {
                     mana.setMANA(Math.min(current + mana.getMANA_STRENGTH(), max));
                 }
-                player.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacy("█".repeat(current), ChatColor.LIGHT_PURPLE));
+                player.spigot().sendMessage(ChatMessageType.ACTION_BAR, TextComponent.fromLegacy(getMana(max, current), ChatColor.LIGHT_PURPLE));
             }
         }, 0L, 20L);
     }
